@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: supplytracker_development
+
+test:
+  <<: *default
+  database: supplytracker_test
+
+production:
+  <<: *default
+  database: supplytracker_production
+  username: supplytracker
+  password: <%= ENV['SUPPLYTRACKER_DATABASE_PASSWORD'] %>
