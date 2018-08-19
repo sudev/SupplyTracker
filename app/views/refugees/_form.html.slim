@@ -3,6 +3,18 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
+    = f.input :name
+    = f.input :latitude
+    = f.input :longitude
+    = f.input :location
+    = f.input :address
+    = f.input :phone_number
+    = f.input :whatsapp_number
+    = f.input :email
+    = f.association :relief_camp
+    = f.input :contact1
+    = f.input :contact2
+    = f.input :contact3
 
   .form-actions
     = f.button :submit

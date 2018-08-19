@@ -1,5 +1,41 @@
 p#notice = notice
 
+p
+  strong Requirement:
+  = @shipped_item.requirement
+p
+  strong Item category:
+  = @shipped_item.item_category
+p
+  strong Item type:
+  = @shipped_item.item_type
+p
+  strong Item sub type:
+  = @shipped_item.item_sub_type
+p
+  strong Item unit:
+  = @shipped_item.item_unit
+p
+  strong Quantity:
+  = @shipped_item.quantity
+p
+  strong Remark:
+  = @shipped_item.remark
+p
+  strong Source:
+  = @shipped_item.source
+p
+  strong Destination:
+  = @shipped_item.destination
+p
+  strong Relief camp:
+  = @shipped_item.relief_camp
+p
+  strong Mode of transport:
+  = @shipped_item.mode_of_transport
+p
+  strong Current location:
+  = @shipped_item.current_location
 
 => link_to 'Edit', edit_shipped_item_path(@shipped_item)
 '|

@@ -3,6 +3,9 @@ h1 Listing areas
 table
   thead
     tr
+      th Name
+      th Code
+      th Area
       th
       th
       th
@@ -10,6 +13,9 @@ table
   tbody
     - @areas.each do |area|
       tr
+        td = area.name
+        td = area.code
+        td = area.area
         td = link_to 'Show', area
         td = link_to 'Edit', edit_area_path(area)
         td = link_to 'Destroy', area, data: { confirm: 'Are you sure?' }, method: :delete

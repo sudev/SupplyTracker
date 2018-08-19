@@ -1,5 +1,11 @@
 p#notice = notice
 
+p
+  strong Name:
+  = @item_unit.name
+p
+  strong Code:
+  = @item_unit.code
 
 => link_to 'Edit', edit_item_unit_path(@item_unit)
 '|

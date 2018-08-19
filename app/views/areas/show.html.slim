@@ -1,5 +1,14 @@
 p#notice = notice
 
+p
+  strong Name:
+  = @area.name
+p
+  strong Code:
+  = @area.code
+p
+  strong Area:
+  = @area.area
 
 => link_to 'Edit', edit_area_path(@area)
 '|

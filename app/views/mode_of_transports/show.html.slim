@@ -1,5 +1,11 @@
 p#notice = notice
 
+p
+  strong Name:
+  = @mode_of_transport.name
+p
+  strong Code:
+  = @mode_of_transport.code
 
 => link_to 'Edit', edit_mode_of_transport_path(@mode_of_transport)
 '|

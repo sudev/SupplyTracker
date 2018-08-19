@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @item_subtype.name
+p
+  strong Code:
+  = @item_subtype.code
+p
+  strong Item type:
+  = @item_subtype.item_type
+
+=> link_to 'Edit', edit_item_subtype_path(@item_subtype)
+'|
+=< link_to 'Back', item_subtypes_path

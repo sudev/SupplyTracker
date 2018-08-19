@@ -7,5 +7,6 @@ class AddFieldsToUser < ActiveRecord::Migration[5.2]
     add_column :users, :address, :text
     add_column :users, :phone_number, :string
     add_column :users, :whatsapp_number, :string
+    add_reference :users, :relief_camp, index: true
   end
 end

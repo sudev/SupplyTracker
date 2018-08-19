@@ -3,6 +3,8 @@ h1 Listing item_conditions
 table
   thead
     tr
+      th Name
+      th Code
       th
       th
       th
@@ -10,6 +12,8 @@ table
   tbody
     - @item_conditions.each do |item_condition|
       tr
+        td = item_condition.name
+        td = item_condition.code
         td = link_to 'Show', item_condition
         td = link_to 'Edit', edit_item_condition_path(item_condition)
         td = link_to 'Destroy', item_condition, data: { confirm: 'Are you sure?' }, method: :delete

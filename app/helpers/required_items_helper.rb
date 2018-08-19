@@ -1,0 +1,2 @@
+module RequiredItemsHelper
+end

@@ -3,6 +3,8 @@ h1 Listing item_units
 table
   thead
     tr
+      th Name
+      th Code
       th
       th
       th
@@ -10,6 +12,8 @@ table
   tbody
     - @item_units.each do |item_unit|
       tr
+        td = item_unit.name
+        td = item_unit.code
         td = link_to 'Show', item_unit
         td = link_to 'Edit', edit_item_unit_path(item_unit)
         td = link_to 'Destroy', item_unit, data: { confirm: 'Are you sure?' }, method: :delete

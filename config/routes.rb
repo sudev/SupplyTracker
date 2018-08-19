@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :item_subtypes
   resources :inventories
   resources :shipped_items
   resources :required_items

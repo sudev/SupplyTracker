@@ -3,6 +3,18 @@ h1 Listing refugees
 table
   thead
     tr
+      th Name
+      th Latitude
+      th Longitude
+      th Location
+      th Address
+      th Phone number
+      th Whatsapp number
+      th Email
+      th Relief camp
+      th Contact1
+      th Contact2
+      th Contact3
       th
       th
       th
@@ -10,6 +22,18 @@ table
   tbody
     - @refugees.each do |refugee|
       tr
+        td = refugee.name
+        td = refugee.latitude
+        td = refugee.longitude
+        td = refugee.location
+        td = refugee.address
+        td = refugee.phone_number
+        td = refugee.whatsapp_number
+        td = refugee.email
+        td = refugee.relief_camp
+        td = refugee.contact1
+        td = refugee.contact2
+        td = refugee.contact3
         td = link_to 'Show', refugee
         td = link_to 'Edit', edit_refugee_path(refugee)
         td = link_to 'Destroy', refugee, data: { confirm: 'Are you sure?' }, method: :delete

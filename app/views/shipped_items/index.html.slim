@@ -3,6 +3,18 @@ h1 Listing shipped_items
 table
   thead
     tr
+      th Requirement
+      th Item category
+      th Item type
+      th Item sub type
+      th Item unit
+      th Quantity
+      th Remark
+      th Source
+      th Destination
+      th Relief camp
+      th Mode of transport
+      th Current location
       th
       th
       th
@@ -10,6 +22,18 @@ table
   tbody
     - @shipped_items.each do |shipped_item|
       tr
+        td = shipped_item.requirement
+        td = shipped_item.item_category
+        td = shipped_item.item_type
+        td = shipped_item.item_sub_type
+        td = shipped_item.item_unit
+        td = shipped_item.quantity
+        td = shipped_item.remark
+        td = shipped_item.source
+        td = shipped_item.destination
+        td = shipped_item.relief_camp
+        td = shipped_item.mode_of_transport
+        td = shipped_item.current_location
         td = link_to 'Show', shipped_item
         td = link_to 'Edit', edit_shipped_item_path(shipped_item)
         td = link_to 'Destroy', shipped_item, data: { confirm: 'Are you sure?' }, method: :delete

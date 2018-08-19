@@ -3,6 +3,17 @@ h1 Listing required_items
 table
   thead
     tr
+      th Requirement
+      th Item category
+      th Item type
+      th Item sub type
+      th Item unit
+      th Item condition
+      th Quantity requested
+      th Quantity provided
+      th Quantity needed
+      th Status
+      th Remark
       th
       th
       th
@@ -10,6 +21,17 @@ table
   tbody
     - @required_items.each do |required_item|
       tr
+        td = required_item.requirement
+        td = required_item.item_category
+        td = required_item.item_type
+        td = required_item.item_sub_type
+        td = required_item.item_unit
+        td = required_item.item_condition
+        td = required_item.quantity_requested
+        td = required_item.quantity_provided
+        td = required_item.quantity_needed
+        td = required_item.status
+        td = required_item.remark
         td = link_to 'Show', required_item
         td = link_to 'Edit', edit_required_item_path(required_item)
         td = link_to 'Destroy', required_item, data: { confirm: 'Are you sure?' }, method: :delete

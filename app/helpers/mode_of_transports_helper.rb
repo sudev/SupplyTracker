@@ -1,0 +1,2 @@
+module ModeOfTransportsHelper
+end
