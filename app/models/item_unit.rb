@@ -1,0 +1,2 @@
+class ItemUnit < ApplicationRecord
+end

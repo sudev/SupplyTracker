@@ -1,0 +1,2 @@
+class ShippedItem < ApplicationRecord
+end
