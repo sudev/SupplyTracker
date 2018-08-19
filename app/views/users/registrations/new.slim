@@ -1,29 +1,47 @@
-h2 Sign up
+.row
+  .col.s12.l8.offset-l2
+    ul.tabs
+      li.tab.col.s6
+        a href='#camp' Relief Camp
+      li.tab.col.s6
+        a href='#collection' Collection Centre
+    #camp.col.s12
+      .card
+        .card-content
+          .card-title Register new Relief Camp
+          = form_for(resource, as: resource_name, url: registration_path(resource_name, anchor: '#camp')) do |f|
+            = devise_error_messages!
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+            = f.fields_for :relief_camps, f.object.relief_camps.new do |rcf|
+              .field
+                = rcf.label :name, 'Camp name'
+                br
+                = rcf.text_field :name, autofocus: true
 
-  .field
-    = f.label :name
-    br
-    = f.text_field :name, autofocus: true
+            .field
+              = f.label :name, 'Co-ordinator\'s name'
+              br
+              = f.text_field :name
 
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autocomplete: "email"
+            .field
+              = f.label :email, 'Co-ordinator\'s email'
+              br
+              = f.email_field :email, autocomplete: "email"
 
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em "(#{ @minimum_password_length } characters minimum)"
-    br
-    = f.password_field :password, autocomplete: "new-password"
+            .field
+              = f.label :password
+              - if @minimum_password_length
+                em "(#{ @minimum_password_length } characters minimum)"
+              br
+              = f.password_field :password, autocomplete: "new-password"
 
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+            .field
+              = f.label :password_confirmation
+              br
+              = f.password_field :password_confirmation, autocomplete: "new-password"
 
-  .actions
-    = f.submit "Sign up"
+            .actions.row
+              = f.submit "Sign up", class: 'btn col s12'
+    #collection.col.s12
+          | Collection Centre
+

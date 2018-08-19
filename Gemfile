@@ -16,6 +16,7 @@ gem 'devise'
 gem 'awesome_print'
 gem 'rspec-rails'
 gem 'slim-rails'
+gem 'materialize-sass', '~> 1.0.0.rc2'
 
 group :development, :test do
   gem 'pry'
