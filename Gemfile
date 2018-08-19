@@ -18,6 +18,12 @@ gem 'rspec-rails'
 gem 'slim-rails'
 gem 'materialize-sass', '~> 1.0.0.rc2'
 
+gem 'activeadmin'
+gem "active_material", github: "vigetlabs/active_material"
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'

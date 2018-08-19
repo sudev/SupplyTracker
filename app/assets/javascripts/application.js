@@ -13,4 +13,3 @@
 //= require rails-ujs
 //= require activestorage
 //= require materialize-sprockets
-//= require_tree .
