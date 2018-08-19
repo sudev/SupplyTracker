@@ -1,0 +1,19 @@
+h1 Listing refugees
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @refugees.each do |refugee|
+      tr
+        td = link_to 'Show', refugee
+        td = link_to 'Edit', edit_refugee_path(refugee)
+        td = link_to 'Destroy', refugee, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Refugee', new_refugee_path

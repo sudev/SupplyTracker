@@ -1,0 +1,19 @@
+h1 Listing item_sub_types
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @item_sub_types.each do |item_sub_type|
+      tr
+        td = link_to 'Show', item_sub_type
+        td = link_to 'Edit', edit_item_sub_type_path(item_sub_type)
+        td = link_to 'Destroy', item_sub_type, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Item sub type', new_item_sub_type_path

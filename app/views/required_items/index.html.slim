@@ -1,0 +1,19 @@
+h1 Listing required_items
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @required_items.each do |required_item|
+      tr
+        td = link_to 'Show', required_item
+        td = link_to 'Edit', edit_required_item_path(required_item)
+        td = link_to 'Destroy', required_item, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Required item', new_required_item_path

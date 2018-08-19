@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :inventories
+  resources :shipped_items
+  resources :required_items
+  resources :requirements
+  resources :refugees
+  resources :areas
+  resources :item_conditions
+  resources :item_units
+  resources :item_sub_types
+  resources :item_types
+  resources :item_categories
+  resources :mode_of_transports
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, skip: [:sessions, :registrations]

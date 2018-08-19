@@ -1,0 +1,19 @@
+h1 Listing shipped_items
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @shipped_items.each do |shipped_item|
+      tr
+        td = link_to 'Show', shipped_item
+        td = link_to 'Edit', edit_shipped_item_path(shipped_item)
+        td = link_to 'Destroy', shipped_item, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Shipped item', new_shipped_item_path

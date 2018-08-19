@@ -1,0 +1,2 @@
+class ItemSubType < ApplicationRecord
+end
