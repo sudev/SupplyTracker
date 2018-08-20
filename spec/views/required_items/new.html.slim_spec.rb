@@ -6,7 +6,7 @@ RSpec.describe "required_items/new", type: :view do
       :requirement => nil,
       :item_category => nil,
       :item_type => nil,
-      :item_sub_type => nil,
+      :item_subtype => nil,
       :item_unit => nil,
       :item_condition => nil,
       :quantity_requested => 1.5,
@@ -28,7 +28,7 @@ RSpec.describe "required_items/new", type: :view do
 
       assert_select "input[name=?]", "required_item[item_type_id]"
 
-      assert_select "input[name=?]", "required_item[item_sub_type_id]"
+      assert_select "input[name=?]", "required_item[item_subtype_id]"
 
       assert_select "input[name=?]", "required_item[item_unit_id]"
 

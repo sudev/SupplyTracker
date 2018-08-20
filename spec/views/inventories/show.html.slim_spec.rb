@@ -5,7 +5,7 @@ RSpec.describe "inventories/show", type: :view do
     @inventory = assign(:inventory, Inventory.create!(
       :item_category => nil,
       :item_type => nil,
-      :item_sub_type => nil,
+      :item_subtype => nil,
       :item_unit => nil,
       :quantity => 2.5,
       :area => nil,

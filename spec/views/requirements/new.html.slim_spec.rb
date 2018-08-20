@@ -4,7 +4,6 @@ RSpec.describe "requirements/new", type: :view do
   before(:each) do
     assign(:requirement, Requirement.new(
       :relief_camp => nil,
-      :location => nil,
       :area => nil,
       :user => nil,
       :requester => "MyString",
@@ -19,8 +18,6 @@ RSpec.describe "requirements/new", type: :view do
     assert_select "form[action=?][method=?]", requirements_path, "post" do
 
       assert_select "input[name=?]", "requirement[relief_camp_id]"
-
-      assert_select "input[name=?]", "requirement[location_id]"
 
       assert_select "input[name=?]", "requirement[area_id]"
 

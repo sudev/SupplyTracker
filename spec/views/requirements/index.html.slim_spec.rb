@@ -5,7 +5,6 @@ RSpec.describe "requirements/index", type: :view do
     assign(:requirements, [
       Requirement.create!(
         :relief_camp => nil,
-        :location => nil,
         :area => nil,
         :user => nil,
         :requester => "Requester",
@@ -14,7 +13,6 @@ RSpec.describe "requirements/index", type: :view do
       ),
       Requirement.create!(
         :relief_camp => nil,
-        :location => nil,
         :area => nil,
         :user => nil,
         :requester => "Requester",

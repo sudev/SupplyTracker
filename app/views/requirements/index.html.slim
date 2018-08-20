@@ -4,7 +4,6 @@ table
   thead
     tr
       th Relief camp
-      th Location
       th Area
       th User
       th Requested at
@@ -19,7 +18,6 @@ table
     - @requirements.each do |requirement|
       tr
         td = requirement.relief_camp
-        td = requirement.location
         td = requirement.area
         td = requirement.user
         td = requirement.requested_at

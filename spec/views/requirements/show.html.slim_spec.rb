@@ -4,7 +4,6 @@ RSpec.describe "requirements/show", type: :view do
   before(:each) do
     @requirement = assign(:requirement, Requirement.create!(
       :relief_camp => nil,
-      :location => nil,
       :area => nil,
       :user => nil,
       :requester => "Requester",

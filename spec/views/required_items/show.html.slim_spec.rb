@@ -6,7 +6,7 @@ RSpec.describe "required_items/show", type: :view do
       :requirement => nil,
       :item_category => nil,
       :item_type => nil,
-      :item_sub_type => nil,
+      :item_subtype => nil,
       :item_unit => nil,
       :item_condition => nil,
       :quantity_requested => 2.5,

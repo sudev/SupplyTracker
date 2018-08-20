@@ -6,12 +6,12 @@ RSpec.describe "shipped_items/new", type: :view do
       :requirement => nil,
       :item_category => nil,
       :item_type => nil,
-      :item_sub_type => nil,
+      :item_subtype => nil,
       :item_unit => nil,
       :quantity => 1.5,
       :remark => "MyString",
       :source => nil,
-      :destination => "",
+      :destination => nil,
       :relief_camp => nil,
       :mode_of_transport => "MyString",
       :current_location => nil
@@ -29,7 +29,7 @@ RSpec.describe "shipped_items/new", type: :view do
 
       assert_select "input[name=?]", "shipped_item[item_type_id]"
 
-      assert_select "input[name=?]", "shipped_item[item_sub_type_id]"
+      assert_select "input[name=?]", "shipped_item[item_subtype_id]"
 
       assert_select "input[name=?]", "shipped_item[item_unit_id]"
 
@@ -39,7 +39,7 @@ RSpec.describe "shipped_items/new", type: :view do
 
       assert_select "input[name=?]", "shipped_item[source_id]"
 
-      assert_select "input[name=?]", "shipped_item[destination]"
+      assert_select "input[name=?]", "shipped_item[destination_id]"
 
       assert_select "input[name=?]", "shipped_item[relief_camp_id]"
 

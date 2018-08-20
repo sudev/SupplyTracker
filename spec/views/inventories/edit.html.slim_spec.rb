@@ -5,7 +5,7 @@ RSpec.describe "inventories/edit", type: :view do
     @inventory = assign(:inventory, Inventory.create!(
       :item_category => nil,
       :item_type => nil,
-      :item_sub_type => nil,
+      :item_subtype => nil,
       :item_unit => nil,
       :quantity => 1.5,
       :area => nil,
@@ -30,7 +30,7 @@ RSpec.describe "inventories/edit", type: :view do
 
       assert_select "input[name=?]", "inventory[item_type_id]"
 
-      assert_select "input[name=?]", "inventory[item_sub_type_id]"
+      assert_select "input[name=?]", "inventory[item_subtype_id]"
 
       assert_select "input[name=?]", "inventory[item_unit_id]"
 
