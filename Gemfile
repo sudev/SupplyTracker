@@ -17,6 +17,7 @@ gem 'awesome_print'
 gem 'rspec-rails'
 gem 'slim-rails'
 gem 'materialize-sass', '~> 1.0.0.rc2'
+gem 'materialize-form', github: 'sparkymat/materialize-form'
 
 gem 'activeadmin'
 gem "active_material", github: "vigetlabs/active_material"

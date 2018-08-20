@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/sparkymat/materialize-form.git
+  revision: fec6a96b0a505c2d22d964976411f0ce130ca86c
+  specs:
+    materialize-form (1.0.8)
+
+GIT
   remote: https://github.com/vigetlabs/active_material.git
   revision: 40f80e98196168203467f645ecca96711dc26c55
   specs:
@@ -345,6 +351,7 @@ DEPENDENCIES
   has_scope
   inherited_resources
   kaminari
+  materialize-form!
   materialize-sass (~> 1.0.0.rc2)
   momentjs-rails (>= 2.8.1)
   pg (>= 0.18, < 2.0)
