@@ -9,7 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'jbuilder', '~> 2.5'
+#gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
@@ -23,6 +23,22 @@ gem "active_material", github: "vigetlabs/active_material"
 gem 'cancancan'
 gem 'draper'
 gem 'pundit'
+
+gem 'kaminari'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-sass'
+gem 'chosen-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem 'momentjs-rails', '>= 2.8.1'
+
+gem 'simple_form'
+gem 'has_scope'
+gem 'inherited_resources'
+
+gem 'whenever', '0.9.2'
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'pry'

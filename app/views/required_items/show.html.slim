@@ -1,0 +1,39 @@
+p#notice = notice
+
+p
+  strong Requirement:
+  = @required_item.requirement
+p
+  strong Item category:
+  = @required_item.item_category
+p
+  strong Item type:
+  = @required_item.item_type
+p
+  strong Item sub type:
+  = @required_item.item_sub_type
+p
+  strong Item unit:
+  = @required_item.item_unit
+p
+  strong Item condition:
+  = @required_item.item_condition
+p
+  strong Quantity requested:
+  = @required_item.quantity_requested
+p
+  strong Quantity provided:
+  = @required_item.quantity_provided
+p
+  strong Quantity needed:
+  = @required_item.quantity_needed
+p
+  strong Status:
+  = @required_item.status
+p
+  strong Remark:
+  = @required_item.remark
+
+=> link_to 'Edit', edit_required_item_path(@required_item)
+'|
+=< link_to 'Back', required_items_path

@@ -1,0 +1,54 @@
+p#notice = notice
+
+p
+  strong Item category:
+  = @inventory.item_category
+p
+  strong Item type:
+  = @inventory.item_type
+p
+  strong Item sub type:
+  = @inventory.item_sub_type
+p
+  strong Item unit:
+  = @inventory.item_unit
+p
+  strong Quantity:
+  = @inventory.quantity
+p
+  strong Area:
+  = @inventory.area
+p
+  strong Latitude:
+  = @inventory.latitude
+p
+  strong Longitude:
+  = @inventory.longitude
+p
+  strong Address:
+  = @inventory.address
+p
+  strong Initial quantity:
+  = @inventory.initial_quantity
+p
+  strong Available quantity:
+  = @inventory.available_quantity
+p
+  strong Source:
+  = @inventory.source
+p
+  strong Volunteer:
+  = @inventory.volunteer_id
+p
+  strong Contact number:
+  = @inventory.contact_number
+p
+  strong Contact name:
+  = @inventory.contact_name
+p
+  strong Available from:
+  = @inventory.available_from
+
+=> link_to 'Edit', edit_inventory_path(@inventory)
+'|
+=< link_to 'Back', inventories_path

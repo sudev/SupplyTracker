@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @item_condition.name
+p
+  strong Code:
+  = @item_condition.code
+
+=> link_to 'Edit', edit_item_condition_path(@item_condition)
+'|
+=< link_to 'Back', item_conditions_path

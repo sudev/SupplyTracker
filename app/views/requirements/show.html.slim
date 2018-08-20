@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Relief camp:
+  = @requirement.relief_camp
+p
+  strong Location:
+  = @requirement.location
+p
+  strong Area:
+  = @requirement.area
+p
+  strong User:
+  = @requirement.user
+p
+  strong Requested at:
+  = @requirement.requested_at
+p
+  strong Requester:
+  = @requirement.requester
+p
+  strong Request mode:
+  = @requirement.request_mode
+p
+  strong Priority:
+  = @requirement.priority
+
+=> link_to 'Edit', edit_requirement_path(@requirement)
+'|
+=< link_to 'Back', requirements_path

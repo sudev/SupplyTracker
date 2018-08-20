@@ -1,0 +1,35 @@
+h1 Listing requirements
+
+table
+  thead
+    tr
+      th Relief camp
+      th Location
+      th Area
+      th User
+      th Requested at
+      th Requester
+      th Request mode
+      th Priority
+      th
+      th
+      th
+
+  tbody
+    - @requirements.each do |requirement|
+      tr
+        td = requirement.relief_camp
+        td = requirement.location
+        td = requirement.area
+        td = requirement.user
+        td = requirement.requested_at
+        td = requirement.requester
+        td = requirement.request_mode
+        td = requirement.priority
+        td = link_to 'Show', requirement
+        td = link_to 'Edit', edit_requirement_path(requirement)
+        td = link_to 'Destroy', requirement, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Requirement', new_requirement_path

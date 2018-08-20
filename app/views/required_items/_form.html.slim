@@ -1,0 +1,19 @@
+= simple_form_for(@required_item) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.association :requirement
+    = f.association :item_category
+    = f.association :item_type
+    = f.association :item_sub_type
+    = f.association :item_unit
+    = f.association :item_condition
+    = f.input :quantity_requested
+    = f.input :quantity_provided
+    = f.input :quantity_needed
+    = f.input :status
+    = f.input :remark
+
+  .form-actions
+    = f.button :submit

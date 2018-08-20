@@ -1,0 +1,23 @@
+h1 Listing mode_of_transports
+
+table
+  thead
+    tr
+      th Name
+      th Code
+      th
+      th
+      th
+
+  tbody
+    - @mode_of_transports.each do |mode_of_transport|
+      tr
+        td = mode_of_transport.name
+        td = mode_of_transport.code
+        td = link_to 'Show', mode_of_transport
+        td = link_to 'Edit', edit_mode_of_transport_path(mode_of_transport)
+        td = link_to 'Destroy', mode_of_transport, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Mode of transport', new_mode_of_transport_path

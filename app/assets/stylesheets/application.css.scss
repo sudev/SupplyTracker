@@ -1,0 +1,24 @@
+@import "materialize/components/color-variables";
+$primary-color: color("green", "lighten-2") !default;
+$secondary-color: color("blue", "base") !default;
+@import 'materialize';
+
+@import "bootstrap-datepicker3";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "chosen";
+
+table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-striped;
+  @extend .table-hover;
+}
+
+.chosen-single {
+  height: 34px !important;
+}
+
+.chosen-search-input {
+  height: 30px !important;
+}

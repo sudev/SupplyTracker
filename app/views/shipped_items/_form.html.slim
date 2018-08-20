@@ -1,0 +1,20 @@
+= simple_form_for(@shipped_item) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.association :requirement
+    = f.association :item_category
+    = f.association :item_type
+    = f.association :item_sub_type
+    = f.association :item_unit
+    = f.input :quantity
+    = f.input :remark
+    = f.association :source
+    = f.input :destination
+    = f.association :relief_camp
+    = f.input :mode_of_transport
+    = f.association :current_location
+
+  .form-actions
+    = f.button :submit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_19_225824) do
+ActiveRecord::Schema.define(version: 2018_08_19_235049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,103 @@ ActiveRecord::Schema.define(version: 2018_08_19_225824) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_areas_on_area_id"
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.bigint "item_category_id"
+    t.bigint "item_type_id"
+    t.bigint "item_subtype_id"
+    t.bigint "item_unit_id"
+    t.float "quantity"
+    t.bigint "area_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "address"
+    t.float "initial_quantity"
+    t.float "available_quantity"
+    t.string "source"
+    t.integer "volunteer_id"
+    t.string "contact_number"
+    t.string "contact_name"
+    t.datetime "available_from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_inventories_on_area_id"
+    t.index ["item_category_id"], name: "index_inventories_on_item_category_id"
+    t.index ["item_subtype_id"], name: "index_inventories_on_item_subtype_id"
+    t.index ["item_type_id"], name: "index_inventories_on_item_type_id"
+    t.index ["item_unit_id"], name: "index_inventories_on_item_unit_id"
+  end
+
+  create_table "item_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_conditions", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_subtypes", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "item_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_type_id"], name: "index_item_subtypes_on_item_type_id"
+  end
+
+  create_table "item_types", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_units", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mode_of_transports", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "refugees", force: :cascade do |t|
+    t.string "name"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "location"
+    t.text "address"
+    t.string "phone_number"
+    t.string "whatsapp_number"
+    t.string "email"
+    t.bigint "relief_camp_id"
+    t.string "contact1"
+    t.string "contact2"
+    t.string "contact3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["relief_camp_id"], name: "index_refugees_on_relief_camp_id"
+  end
+
   create_table "relief_camps", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "coordinator_id", null: false
@@ -54,6 +151,69 @@ ActiveRecord::Schema.define(version: 2018_08_19_225824) do
     t.string "email"
     t.string "contact_person"
     t.index ["coordinator_id"], name: "index_relief_camps_on_coordinator_id"
+  end
+
+  create_table "required_items", force: :cascade do |t|
+    t.bigint "requirement_id"
+    t.bigint "item_category_id"
+    t.bigint "item_type_id"
+    t.bigint "item_subtype_id"
+    t.bigint "item_unit_id"
+    t.bigint "item_condition_id"
+    t.float "quantity_requested"
+    t.float "quantity_provided"
+    t.float "quantity_needed"
+    t.string "status"
+    t.string "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_category_id"], name: "index_required_items_on_item_category_id"
+    t.index ["item_condition_id"], name: "index_required_items_on_item_condition_id"
+    t.index ["item_subtype_id"], name: "index_required_items_on_item_subtype_id"
+    t.index ["item_type_id"], name: "index_required_items_on_item_type_id"
+    t.index ["item_unit_id"], name: "index_required_items_on_item_unit_id"
+    t.index ["requirement_id"], name: "index_required_items_on_requirement_id"
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.bigint "relief_camp_id"
+    t.bigint "area_id"
+    t.bigint "user_id"
+    t.datetime "requested_at"
+    t.string "requester"
+    t.string "request_mode"
+    t.string "priority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_requirements_on_area_id"
+    t.index ["relief_camp_id"], name: "index_requirements_on_relief_camp_id"
+    t.index ["user_id"], name: "index_requirements_on_user_id"
+  end
+
+  create_table "shipped_items", force: :cascade do |t|
+    t.bigint "requirement_id"
+    t.bigint "item_category_id"
+    t.bigint "item_type_id"
+    t.bigint "item_subtype_id"
+    t.bigint "item_unit_id"
+    t.float "quantity"
+    t.string "remark"
+    t.bigint "source_id"
+    t.bigint "destination_id"
+    t.bigint "relief_camp_id"
+    t.string "mode_of_transport"
+    t.bigint "current_location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_location_id"], name: "index_shipped_items_on_current_location_id"
+    t.index ["destination_id"], name: "index_shipped_items_on_destination_id"
+    t.index ["item_category_id"], name: "index_shipped_items_on_item_category_id"
+    t.index ["item_subtype_id"], name: "index_shipped_items_on_item_subtype_id"
+    t.index ["item_type_id"], name: "index_shipped_items_on_item_type_id"
+    t.index ["item_unit_id"], name: "index_shipped_items_on_item_unit_id"
+    t.index ["relief_camp_id"], name: "index_shipped_items_on_relief_camp_id"
+    t.index ["requirement_id"], name: "index_shipped_items_on_requirement_id"
+    t.index ["source_id"], name: "index_shipped_items_on_source_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,8 +232,36 @@ ActiveRecord::Schema.define(version: 2018_08_19_225824) do
     t.text "address"
     t.string "phone_number"
     t.string "whatsapp_number"
+    t.bigint "relief_camp_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["relief_camp_id"], name: "index_users_on_relief_camp_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "areas", "areas"
+  add_foreign_key "inventories", "areas"
+  add_foreign_key "inventories", "item_categories"
+  add_foreign_key "inventories", "item_subtypes"
+  add_foreign_key "inventories", "item_types"
+  add_foreign_key "inventories", "item_units"
+  add_foreign_key "item_subtypes", "item_types"
+  add_foreign_key "refugees", "relief_camps"
+  add_foreign_key "required_items", "item_categories"
+  add_foreign_key "required_items", "item_conditions"
+  add_foreign_key "required_items", "item_subtypes"
+  add_foreign_key "required_items", "item_types"
+  add_foreign_key "required_items", "item_units"
+  add_foreign_key "required_items", "requirements"
+  add_foreign_key "requirements", "areas"
+  add_foreign_key "requirements", "relief_camps"
+  add_foreign_key "requirements", "users"
+  add_foreign_key "shipped_items", "areas", column: "current_location_id"
+  add_foreign_key "shipped_items", "areas", column: "destination_id"
+  add_foreign_key "shipped_items", "areas", column: "source_id"
+  add_foreign_key "shipped_items", "item_categories"
+  add_foreign_key "shipped_items", "item_subtypes"
+  add_foreign_key "shipped_items", "item_types"
+  add_foreign_key "shipped_items", "item_units"
+  add_foreign_key "shipped_items", "relief_camps"
+  add_foreign_key "shipped_items", "requirements"
 end

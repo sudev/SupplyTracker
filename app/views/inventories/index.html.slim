@@ -1,0 +1,51 @@
+h1 Listing inventories
+
+table
+  thead
+    tr
+      th Item category
+      th Item type
+      th Item sub type
+      th Item unit
+      th Quantity
+      th Area
+      th Latitude
+      th Longitude
+      th Address
+      th Initial quantity
+      th Available quantity
+      th Source
+      th Volunteer
+      th Contact number
+      th Contact name
+      th Available from
+      th
+      th
+      th
+
+  tbody
+    - @inventories.each do |inventory|
+      tr
+        td = inventory.item_category
+        td = inventory.item_type
+        td = inventory.item_sub_type
+        td = inventory.item_unit
+        td = inventory.quantity
+        td = inventory.area
+        td = inventory.latitude
+        td = inventory.longitude
+        td = inventory.address
+        td = inventory.initial_quantity
+        td = inventory.available_quantity
+        td = inventory.source
+        td = inventory.volunteer_id
+        td = inventory.contact_number
+        td = inventory.contact_name
+        td = inventory.available_from
+        td = link_to 'Show', inventory
+        td = link_to 'Edit', edit_inventory_path(inventory)
+        td = link_to 'Destroy', inventory, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Inventory', new_inventory_path
