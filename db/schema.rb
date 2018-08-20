@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_130721) do
+ActiveRecord::Schema.define(version: 2018_08_20_132051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,7 +160,9 @@ ActiveRecord::Schema.define(version: 2018_08_20_130721) do
     t.string "whatsapp_number"
     t.string "email"
     t.string "contact_person"
+    t.bigint "district_id"
     t.index ["coordinator_id"], name: "index_relief_camps_on_coordinator_id"
+    t.index ["district_id"], name: "index_relief_camps_on_district_id"
   end
 
   create_table "required_items", force: :cascade do |t|
@@ -256,6 +258,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_130721) do
   add_foreign_key "inventories", "item_units"
   add_foreign_key "item_subtypes", "item_types"
   add_foreign_key "refugees", "relief_camps"
+  add_foreign_key "relief_camps", "districts"
   add_foreign_key "required_items", "item_categories"
   add_foreign_key "required_items", "item_conditions"
   add_foreign_key "required_items", "item_subtypes"
