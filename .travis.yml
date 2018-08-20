@@ -5,4 +5,4 @@ rvm:
 before_install: gem install bundler -v 1.16.3
 before_script:
   - cp config/database.example.yml config/database.yml
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
+  - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed_fu
