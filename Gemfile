@@ -39,6 +39,7 @@ gem 'inherited_resources'
 
 gem 'whenever', '0.9.2'
 gem 'delayed_job_active_record'
+gem 'seed-fu', '~> 2.3'
 
 group :development, :test do
   gem 'pry'
