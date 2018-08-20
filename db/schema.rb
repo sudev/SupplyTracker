@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_132051) do
+ActiveRecord::Schema.define(version: 2018_08_20_134256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_areas_on_area_id"
+    t.index ["code"], name: "index_areas_on_code", unique: true
   end
 
   create_table "districts", force: :cascade do |t|
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_item_categories_on_code", unique: true
   end
 
   create_table "item_conditions", force: :cascade do |t|
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_item_conditions_on_code", unique: true
   end
 
   create_table "item_subtypes", force: :cascade do |t|
@@ -106,6 +109,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.bigint "item_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_item_subtypes_on_code", unique: true
     t.index ["item_type_id"], name: "index_item_subtypes_on_item_type_id"
   end
 
@@ -114,6 +118,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_item_types_on_code", unique: true
   end
 
   create_table "item_units", force: :cascade do |t|
@@ -121,6 +126,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_item_units_on_code", unique: true
   end
 
   create_table "mode_of_transports", force: :cascade do |t|
@@ -128,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_mode_of_transports_on_code", unique: true
   end
 
   create_table "refugees", force: :cascade do |t|
@@ -161,6 +168,8 @@ ActiveRecord::Schema.define(version: 2018_08_20_132051) do
     t.string "email"
     t.string "contact_person"
     t.bigint "district_id"
+    t.string "code"
+    t.index ["code"], name: "index_relief_camps_on_code", unique: true
     t.index ["coordinator_id"], name: "index_relief_camps_on_coordinator_id"
     t.index ["district_id"], name: "index_relief_camps_on_district_id"
   end

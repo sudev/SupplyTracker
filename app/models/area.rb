@@ -1,3 +1,5 @@
 class Area < ApplicationRecord
-  belongs_to :area
+  include HasCode
+
+  belongs_to :area, optional: true
 end
