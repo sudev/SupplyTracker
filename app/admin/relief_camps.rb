@@ -7,18 +7,21 @@ ActiveAdmin.register ReliefCamp do
   filter :name
   filter :email
   filter :district
+  filter :code
 
   index do
     selectable_column
     id_column
     column :name
-    column :coordinator
-    column :location do |relief_camp|
-      "(#{relief_camp.latitude},#{relief_camp.longitude})"
-    end
+    column :code
     column :contact_person
+    column :location do |relief_camp|
+      relief_camp.latitude.present? && relief_camp.longitude.present? ? "(#{relief_camp.latitude},#{relief_camp.longitude})" : 'N/A'
+    end
     column :phone_number
+    column :coordinator
     column :address
+    column :district
     actions
   end
 end

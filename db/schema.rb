@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_134256) do
 
   create_table "relief_camps", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "coordinator_id", null: false
+    t.bigint "coordinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "latitude", precision: 10, scale: 6
