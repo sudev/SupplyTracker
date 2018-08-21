@@ -1,0 +1,12 @@
+.nested-fields
+  .div class="row col m12 tb-mrgn-10"
+    .div class = "row col m3"
+      = f.association :item_category, input_html: {class: 'chosen-select'}
+    .div class="row col m3"
+      = f.association :item_type
+    .div class="row col m3"
+      = f.association :item_unit
+    .div class="row col m2"
+      = f.input :quantity
+    .div class="row col m1"
+      = link_to_remove_association "REMOVE", f

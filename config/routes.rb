@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :goods_commitments
   resources :item_subtypes
   resources :inventories
   resources :shipped_items
@@ -24,4 +25,5 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new', as: :new_user_registration
     post 'register', to: 'users/registrations#create', as: :user_registration
   end
+  root "goods_commitments#new"
 end

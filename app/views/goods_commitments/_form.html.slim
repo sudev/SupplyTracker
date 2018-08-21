@@ -1,0 +1,28 @@
+= simple_form_for(@goods_commitment) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .div class="col m12"
+    .form-inputs
+      .div class="col m4"
+        = f.input :name
+      .div class="col m4"
+        = f.input :email
+      .div class="col m4"
+        = f.input :phone_number
+      .div class="row col m4"
+        = f.input :available_from, input_html: {class: 'datepicker'}
+      .div class="col m4"
+        = render partial: "layouts/location", locals:{ loc:f }
+
+    .div class="col m12 t-mrgn-10"
+      h5 INVENTORY DETAILS
+    = f.simple_fields_for :inventories do |inventory|
+      = render 'inventory_fields', f: inventory
+    .div class="col m12"
+      .links class="button btn btn-primary white"
+        = link_to_add_association 'Add Item', f, :inventories
+
+    .div class="row col m12 center tb-mrgn-10"
+      .form-actions
+        = f.button :submit, label: "SUBMIT"
