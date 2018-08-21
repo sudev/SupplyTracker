@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register User do
-  permit_params :name, :email, :password, :password_confirmation
+  permit_params :name, :email, :password, :password_confirmation, :user_type
 
   index do
     selectable_column
     id_column
     column :name
+    column :user_type
     column :email
     actions
   end
@@ -20,6 +21,7 @@ ActiveAdmin.register User do
           attributes_table do
             row :id
             row :name
+            row :user_type
             row :email
           end
         end
@@ -50,8 +52,9 @@ ActiveAdmin.register User do
       if f.object.new_record?
         f.input :email
       end
-      f.input :password
+      f.input :user_type, as: :select2, collection: User.user_type.options
       if f.object.new_record?
+        f.input :password
         f.input :password_confirmation
       end
     end

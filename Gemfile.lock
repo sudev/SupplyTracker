@@ -149,6 +149,8 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    enumerize (2.2.2)
+      activesupport (>= 3.2)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -361,6 +363,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   draper
+  enumerize
   font-awesome-sass
   has_scope
   inherited_resources
