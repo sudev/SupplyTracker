@@ -23,4 +23,8 @@ class GoodsCommitment < ApplicationRecord
       self.user_id = user.id
     end
   end
+
+  after_save do
+    self.inventories.update_all({latitude: self.latitude, longitude: self.longitude, address: self.location})
+  end
 end
