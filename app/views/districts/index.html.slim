@@ -1,0 +1,21 @@
+.div class="col m12 center tb-mrgn-20"
+  h5 DISTRICTS LIST
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @districts.each do |district|
+      tr
+        td = district.name
+        td = link_to 'Show', district
+        td = link_to 'Edit', edit_district_path(district)
+        td = link_to 'Destroy', district, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New District', new_district_path

@@ -1,0 +1,24 @@
+= simple_form_for(@district) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .div class="col m12"
+    .form-inputs
+      .div class="col m3 s12"
+        = f.input :name
+      .div class="col m3 s12"
+        = f.input :code
+      .div class="col m3 s12"
+        = f.input :local_name
+
+    .div class="col m12 t-mrgn-10 s12"
+      h5 AREAS DETAILS
+    = f.simple_fields_for :areas do |area|
+      = render 'area_fields', f: area
+    .div class="col m12 s12"
+      .links class="button btn btn-primary white"
+        = link_to_add_association 'Add Area', f, :areas
+
+    .div class="row col m12 center tb-mrgn-10 s12"
+      .form-actions
+        = f.button :submit, label: "SUBMIT"

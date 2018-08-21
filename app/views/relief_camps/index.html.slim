@@ -1,0 +1,23 @@
+.div class="col m12 center tb-mrgn-20"
+  h5 RELIEF CAMPS
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @relief_camps.each do |relief_camp|
+      tr
+        td = relief_camp.name
+        td = relief_camp.district.name
+        td = link_to 'Show', relief_camp
+        td = link_to 'Edit', edit_relief_camp_path(relief_camp)
+        td = link_to 'Destroy', relief_camp, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Relief camp', new_relief_camp_path

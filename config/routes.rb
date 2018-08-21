@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :item_subtypes
   resources :inventories
   resources :shipped_items
+  resources :relief_camps
   resources :required_items
   resources :requirements
   resources :refugees
+  resources :districts
   resources :areas
   resources :item_conditions
   resources :item_units

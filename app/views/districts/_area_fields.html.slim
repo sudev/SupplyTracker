@@ -1,0 +1,12 @@
+.nested-fields
+  .div class="row col m12 tb-mrgn-10"
+    .div class = "row col m3 s12"
+      = f.input :name, input_html: {class: 'chosen-select'}
+    .div class="row col m2 s12"
+      = f.input :code
+    .div class="row col m3 s12"
+      = f.input :locality
+    .div class="row col m3 s12"
+      = f.input :tags
+    .div class="row col m1 s12"
+      = link_to_remove_association "REMOVE", f

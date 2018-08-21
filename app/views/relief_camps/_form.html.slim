@@ -1,0 +1,32 @@
+= simple_form_for(@relief_camp) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .div class="col m12"
+    .form-inputs
+      .div class="col m4 s12"
+        = f.input :name
+      .div class="col m4 s12"
+        = f.input :code
+      .div class="col m4 s12"
+        = f.association :coordinator, as: :select, collection: User.all
+      .div class="clearfix"
+      .div class="col m4 s12"
+        = f.association :district
+      .div class="col m4 s12"
+        = render partial: "layouts/location", locals: {loc: f}
+      .div class="col m4 s12"
+        = f.association :area
+      .div class="clearfix"
+      .div class="col m4 s12"
+        = f.input :phone_number
+      .div class="col m4 s12"
+        = f.input :whatsapp_number
+      .div class="col m4 s12"
+        = f.input :email
+      .div class="col m4 s12"
+        = f.input :contact_person
+
+    .div class="row col m12 center tb-mrgn-10 s12"
+      .form-actions
+        = f.button :submit, label: "SUBMIT"

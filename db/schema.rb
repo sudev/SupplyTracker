@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_193711) do
+ActiveRecord::Schema.define(version: 2018_08_21_074937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,9 @@ ActiveRecord::Schema.define(version: 2018_08_20_193711) do
     t.string "contact_person"
     t.bigint "district_id"
     t.string "code"
+    t.string "location"
+    t.bigint "area_id"
+    t.index ["area_id"], name: "index_relief_camps_on_area_id"
     t.index ["code"], name: "index_relief_camps_on_code", unique: true
     t.index ["coordinator_id"], name: "index_relief_camps_on_coordinator_id"
     t.index ["district_id"], name: "index_relief_camps_on_district_id"
@@ -286,6 +289,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_193711) do
   add_foreign_key "inventories", "item_units"
   add_foreign_key "item_subtypes", "item_types"
   add_foreign_key "refugees", "relief_camps"
+  add_foreign_key "relief_camps", "areas"
   add_foreign_key "relief_camps", "districts"
   add_foreign_key "required_items", "item_categories"
   add_foreign_key "required_items", "item_conditions"

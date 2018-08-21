@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  COORDINATOR = "COORDINATOR"
+  ROLES = [COORDINATOR]
+
   has_many :relief_camps, foreign_key: :coordinator_id
 
   accepts_nested_attributes_for :relief_camps
