@@ -111,6 +111,7 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     chronic (0.10.2)
+    cocoon (1.2.11)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -344,12 +345,14 @@ DEPENDENCIES
   capybara (>= 2.15)
   chosen-rails
   chromedriver-helper
+  cocoon
   delayed_job_active_record
   devise
   draper
   font-awesome-sass
   has_scope
   inherited_resources
+  jquery-rails
   kaminari
   materialize-form!
   materialize-sass (~> 1.0.0.rc2)

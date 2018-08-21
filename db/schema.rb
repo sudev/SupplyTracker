@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_134256) do
+ActiveRecord::Schema.define(version: 2018_08_20_193711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +44,13 @@ ActiveRecord::Schema.define(version: 2018_08_20_134256) do
   create_table "areas", force: :cascade do |t|
     t.string "name"
     t.string "code"
-    t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["area_id"], name: "index_areas_on_area_id"
+    t.string "tags", array: true
+    t.string "locality"
+    t.bigint "district_id"
     t.index ["code"], name: "index_areas_on_code", unique: true
+    t.index ["district_id"], name: "index_areas_on_district_id"
   end
 
   create_table "districts", force: :cascade do |t|
@@ -59,6 +61,19 @@ ActiveRecord::Schema.define(version: 2018_08_20_134256) do
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_districts_on_code", unique: true
     t.index ["name"], name: "index_districts_on_name"
+  end
+
+  create_table "goods_commitments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.boolean "verified"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "location"
+    t.boolean "active"
+    t.datetime "available_from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_goods_commitments_on_user_id"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -80,7 +95,9 @@ ActiveRecord::Schema.define(version: 2018_08_20_134256) do
     t.datetime "available_from"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "goods_commitment_id"
     t.index ["area_id"], name: "index_inventories_on_area_id"
+    t.index ["goods_commitment_id"], name: "index_inventories_on_goods_commitment_id"
     t.index ["item_category_id"], name: "index_inventories_on_item_category_id"
     t.index ["item_subtype_id"], name: "index_inventories_on_item_subtype_id"
     t.index ["item_type_id"], name: "index_inventories_on_item_type_id"
@@ -259,8 +276,10 @@ ActiveRecord::Schema.define(version: 2018_08_20_134256) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "areas", "areas"
+  add_foreign_key "areas", "districts"
+  add_foreign_key "goods_commitments", "users"
   add_foreign_key "inventories", "areas"
+  add_foreign_key "inventories", "goods_commitments"
   add_foreign_key "inventories", "item_categories"
   add_foreign_key "inventories", "item_subtypes"
   add_foreign_key "inventories", "item_types"

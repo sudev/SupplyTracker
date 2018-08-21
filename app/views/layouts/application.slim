@@ -4,7 +4,7 @@ html
     title SupplyTracker
     = csrf_meta_tags
     = csp_meta_tag
-
+    meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
 
@@ -15,4 +15,5 @@ html
     javascript:
       document.addEventListener('DOMContentLoaded', function() {
         M.AutoInit();
-      })
+      });
+    script type = "text/javascript" src = "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"

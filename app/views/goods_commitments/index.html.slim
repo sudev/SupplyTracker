@@ -1,0 +1,19 @@
+h1 Listing goods_commitments
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @goods_commitments.each do |goods_commitment|
+      tr
+        td = link_to 'Show', goods_commitment
+        td = link_to 'Edit', edit_goods_commitment_path(goods_commitment)
+        td = link_to 'Destroy', goods_commitment, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Goods commitment', new_goods_commitment_path

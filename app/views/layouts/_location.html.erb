@@ -1,0 +1,38 @@
+
+<div class="col-md-12">
+    <%= loc.input :location, input_html:{ id:"location_name"}, label: "Location" %>
+</div>
+<%= loc.input :latitude, as: :hidden, input_html:{ id:"location_latitude"} %>
+<%= loc.input :longitude, as: :hidden, input_html:{ id:"location_longitude"} %>
+
+
+<script type="text/javascript">
+
+    function initializeAutoComplete() {
+        geocoder = new google.maps.Geocoder();
+        var mapOptions = {
+            center: new google.maps.LatLng(25.1, 55.3),
+            zoom: 11
+        };
+
+        var pickupAc = new google.maps.places.Autocomplete(document.getElementById("location_name"));
+        google.maps.event.addListener(
+                pickupAc,
+                'place_changed',
+                function () {
+                    var place = pickupAc.getPlace();
+                    if (!place.geometry) {
+                        return;
+                    }
+                    pickup = place.geometry.location;
+                    $("#location_latitude").val(pickup.lat());
+                    $("#location_longitude").val(pickup.lng());
+                }
+        );
+    }
+
+    $(document).ready(function(){
+    	initializeAutoComplete();
+    });
+
+</script>

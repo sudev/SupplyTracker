@@ -16,3 +16,14 @@
 //= require jquery
 //= require materialize-sprockets
 //= require materialize-form
+//= require cocoon
+//= require chosen-jquery
+//= require bootstrap-datetimepicker
+//= require scaffold
+
+$(document).ready(function() {
+    $('form').on('cocoon:after-insert', function(e, insertedItem){
+        console.log("helllo")
+        $('select').chosen({allow_single_deselect: true, disable_search_threshold: 10});
+    });
+});

@@ -33,10 +33,12 @@ gem 'chosen-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'momentjs-rails', '>= 2.8.1'
+gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'has_scope'
 gem 'inherited_resources'
+gem "cocoon"
 
 gem 'whenever', '0.9.2'
 gem 'delayed_job_active_record'
