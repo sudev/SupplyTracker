@@ -8,15 +8,39 @@ ActiveAdmin.register User do
     id_column
     column :name
     column :email
+    actions
   end
 
   filter :email
 
   show do
-    attributes_table do
-      row :id
-      row :name
-      row :email
+    tabs do
+      tab :details do
+        panel '' do
+          attributes_table do
+            row :id
+            row :name
+            row :email
+          end
+        end
+      end
+      tab :camps do
+        panel '' do
+          table_for resource.relief_camps do
+            column :id do |relief_camp|
+              link_to relief_camp.id, admin_relief_camp_path(relief_camp)
+            end
+            column :name
+            column :code
+            column :district
+            column :location do |relief_camp|
+              relief_camp.latitude.present? && relief_camp.longitude.present? ? "(#{relief_camp.latitude},#{relief_camp.longitude})" : 'N/A'
+            end
+            column :address
+            column :phone_number
+          end
+        end
+      end
     end
   end
   

@@ -21,6 +21,8 @@ gem 'materialize-form', github: 'sparkymat/materialize-form'
 
 gem 'activeadmin'
 gem "active_material", github: "vigetlabs/active_material"
+gem 'select2-rails'
+gem 'activeadmin-select2', github: 'sparkymat/activeadmin-select2'
 gem 'cancancan'
 gem 'draper'
 gem 'pundit'

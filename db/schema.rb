@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_074937) do
+ActiveRecord::Schema.define(version: 2018_08_21_105827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2018_08_21_074937) do
     t.bigint "district_id"
     t.index ["code"], name: "index_areas_on_code", unique: true
     t.index ["district_id"], name: "index_areas_on_district_id"
+  end
+
+  create_table "camp_members", force: :cascade do |t|
+    t.bigint "relief_camp_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["relief_camp_id"], name: "index_camp_members_on_relief_camp_id"
+    t.index ["user_id"], name: "index_camp_members_on_user_id"
   end
 
   create_table "districts", force: :cascade do |t|
@@ -280,6 +289,8 @@ ActiveRecord::Schema.define(version: 2018_08_21_074937) do
   end
 
   add_foreign_key "areas", "districts"
+  add_foreign_key "camp_members", "relief_camps"
+  add_foreign_key "camp_members", "users"
   add_foreign_key "goods_commitments", "users"
   add_foreign_key "inventories", "areas"
   add_foreign_key "inventories", "goods_commitments"
