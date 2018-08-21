@@ -9,7 +9,7 @@ class User < ApplicationRecord
   COORDINATOR = "COORDINATOR"
   ROLES = [COORDINATOR]
 
-  has_many :relief_camps, foreign_key: :coordinator_id
-
-  accepts_nested_attributes_for :relief_camps
+  has_many :camp_members
+  has_many :relief_camps, through: :camp_members
+  has_many :coordinated_relief_camps, class_name: 'ReliefCamp', foreign_key: :coordinator_id
 end
