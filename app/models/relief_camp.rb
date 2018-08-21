@@ -7,6 +7,11 @@ class ReliefCamp < ApplicationRecord
   belongs_to :area, optional: true
   belongs_to :district
 
+  scope :has_district_id, ->(id) {where(district_id: id)}
+  scope :has_area_id, ->(id) {where(area_id: id)}
+  scope :has_name, -> (name){where("name ILIKE ?", "%#{name}%") }
+
+
   def code_prefix
     'CAMP'
   end

@@ -1,5 +1,9 @@
 class ReliefCampsController < InheritedResources::Base
 
+  has_scope :has_district_id, as: :district_id
+  has_scope :has_area_id, as: :area_id
+  has_scope :has_name, as: :search
+
   private
 
   def relief_camp_params
