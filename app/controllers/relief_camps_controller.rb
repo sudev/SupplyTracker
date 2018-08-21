@@ -10,4 +10,8 @@ class ReliefCampsController < InheritedResources::Base
     params.require(:relief_camp).permit(:name, :coordinator_id, :latitude, :longitude, :address, :phone_number, :whatsapp_number,
                                         :email, :contact_person, :district_id, :code, :location, :area_id)
   end
+
+  def collection
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.includes(:district, :area))
+  end
 end
