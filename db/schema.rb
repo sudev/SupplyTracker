@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_105827) do
+
+ActiveRecord::Schema.define(version: 2018_08_21_134811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,7 +145,9 @@ ActiveRecord::Schema.define(version: 2018_08_21_105827) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_category_id"
     t.index ["code"], name: "index_item_types_on_code", unique: true
+    t.index ["item_category_id"], name: "index_item_types_on_item_category_id"
   end
 
   create_table "item_units", force: :cascade do |t|
@@ -299,6 +302,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_105827) do
   add_foreign_key "inventories", "item_types"
   add_foreign_key "inventories", "item_units"
   add_foreign_key "item_subtypes", "item_types"
+  add_foreign_key "item_types", "item_categories"
   add_foreign_key "refugees", "relief_camps"
   add_foreign_key "relief_camps", "areas"
   add_foreign_key "relief_camps", "districts"
